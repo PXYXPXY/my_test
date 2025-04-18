@@ -1,15 +1,13 @@
 package org.apache.commons.io;
 
-import org.junit.*;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.nio.file.attribute.FileTime;
-import java.time.Instant;
 
-import static org.junit.Assert.*;
-
+import static org.junit.jupiter.api.Assertions.*;
 
 public class FileUtilsCopyTest {
     private File src;
@@ -17,7 +15,7 @@ public class FileUtilsCopyTest {
     private File destExists;
     private static final String TEST_DIR = "";
 
-    @Before
+    @BeforeEach
     public void setUp() throws IOException {
         Files.createDirectories(Path.of(TEST_DIR));
         src = new File(TEST_DIR + "source.txt");
@@ -33,8 +31,8 @@ public class FileUtilsCopyTest {
     public void testCopyToNonExistingFile() throws IOException {
         // 测试1：目标文件不存在
         FileUtils.copyFile(src, destNotExist);
-        assertTrue("文件应被成功创建", destNotExist.exists());
-        assertEquals(readFile(src), readFile(destNotExist), "");
+        assertTrue(destNotExist.exists(), "文件应被成功创建");
+        assertEquals(readFile(src), readFile(destNotExist));
     }
 
     @Test

@@ -1,13 +1,9 @@
 package org.apache.commons.io;
 
-import junit.framework.JUnit4TestAdapter;
-import junit.framework.Test;
-import junit.framework.TestSuite;
-import org.junit.runner.RunWith;
-import org.junit.runners.Suite;
-import org.junit.runners.Suite.SuiteClasses;
+import org.junit.platform.suite.api.SelectClasses;
+import org.junit.platform.suite.api.Suite;
 
-@RunWith(Suite.class)
-@SuiteClasses({FileUtilsCopyTest.class,FileUtilsCopyTest2.class})
-
-public class AllTests {}
+@Suite
+@SelectClasses({FileUtilsCopyTest.class, FileUtilsCopy2Test.class})
+public class AllTests {
+}
